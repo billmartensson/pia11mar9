@@ -66,12 +66,13 @@ class StartFragment : Fragment() {
             var calchelp = CalcHelper()
             calchelp.loadNumbers()
 
+            /*
             val n1 = calchelp.textToNumber(number1)
             val n2 = calchelp.textToNumber(number2)
 
             val resultNumber = calchelp.numberToText(n1 + n2)
-
-            view.findViewById<TextView>(R.id.startResultTV).text = resultNumber
+            */
+            view.findViewById<TextView>(R.id.startResultTV).text = calchelp.calcStrings(number1, number2)
         }
 
     }
@@ -100,26 +101,3 @@ class StartFragment : Fragment() {
 
 }
 
-class CalcHelper {
-
-    var allnumbers = mutableListOf<String>()
-
-    fun loadNumbers() {
-
-        allnumbers.add("zero")
-        allnumbers.add("one")
-        allnumbers.add("two")
-        allnumbers.add("three")
-        allnumbers.add("four")
-
-    }
-
-    fun textToNumber(number : String) : Int {
-        return allnumbers.indexOf(number)
-    }
-
-    fun numberToText(number : Int) : String {
-        return allnumbers[number]
-    }
-
-}
